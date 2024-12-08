@@ -15,6 +15,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 nav img {
@@ -24,6 +25,11 @@ nav img {
     left: -50px;
     top: 20px;
 }
+
+
+/* .navbar-brand img {
+    height: 50px;
+} */
 
 .nav-links {
     display: flex;
@@ -215,42 +221,70 @@ nav .fa {
     justify-content: center;
 }
 
-#ft1crs {
-    /* background-color: #EA3639;
-    max-width: auto;
-    position: relative;
-    right: 0;
-    top: 50px; */
+.course {
+    padding: 2rem;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+
+/* Left Text Column */
+
+.course-col {
+    flex: 1 1 50%;
+    padding: 1rem;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+
+/* Right Image Column */
+
+.courseimages {
+    flex: 1 1 40%;
+    text-align: center;
+}
+
+.courseimages img {
     max-width: 100%;
     height: auto;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
-#ft2crs {
-    background-color: #EA3639;
-    height: 200px;
-    width: 200px;
-    position: relative;
-    left: 200px;
-    top: 50px;
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 768px) {
+    .row {
+        flex-direction: column;
+        text-align: center;
+    }
+    .course-col {
+        flex: 1 1 100%;
+    }
+    .courseimages {
+        flex: 1 1 100%;
+        margin-top: 1rem;
+    }
 }
 
-#ft3crs {
-    background-color: #EA3639;
-    height: 200px;
-    width: 200px;
-    position: relative;
-    left: 250px;
-    top: 50px;
-}
-
-#ft4crs {
-    background-color: #EA3639;
-    height: 200px;
-    width: 200px;
-    position: relative;
-    left: 300px;
-    top: 50px;
+@media (max-width: 480px) {
+    .course h1 {
+        font-size: 1.5rem;
+    }
+    .course-col {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
 }
 
 
@@ -297,7 +331,7 @@ nav .fa {
     text-align: center;
     text-wrap: balance;
     position: relative;
-    top: -370px;
+    top: -450px;
     left: -120px;
     font-size: 15px;
     font-family: 'Poppins', sans-serif;
@@ -312,11 +346,11 @@ nav .fa {
 }
 
 .museumi img {
-    height: 300px;
+    height: 400px;
     width: 600px;
     position: relative;
     left: 650px;
-    top: -70px;
+    top: -50px;
     display: block;
     border-radius: 5px;
     transition: 1s;
