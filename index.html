@@ -17,95 +17,83 @@
 </head>
 
 <body>
-    <section class="header">
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="logo.png" alt="" id="logoja" style="margin-left: 30px;margin-top: -30px;"></a>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Real Madrid Logo">
 
+        </div>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                
-              </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#About">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#Historic">Historic</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#Coach">Coach</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#Players">Players</a>
-                        </li>
+        <div class="menu" id="menu">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
 
-
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#contact-section">Contact</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="loginandRegister.html">Login/Register</a>
-                        </li>
-
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <nav id="navbar">
+            <a href="index.html">Home</a>
+            <a href="#about">About</a>
+            <a href="#historic">Historic</a>
+            <a href="#trainers">Trainers</a>
+            <a href="shop.html">Shop</a>
+            <a href="sponsors.html">Sponsors</a>
+            <a href="loginandRegister.html" class="sign-in">Sign In</a>
         </nav>
-        <div class="text-box">
-            <h1 class="text-box">FC ALPHA</h1>
-            <!-- <div class="box">
-                <h2 class="text-box1">Since 1985!</h2>
-            </div> -->
-            <p class="text-box">Making website is now one of the easiest thing in the world. You just need to learn HTML, CSS, JavaScript and you are good to go
-                <p>
-                    <a href="visitus.html" class="hero-btn">Visit us to know More</a>
-        </div>
-    </section>
+    </header>
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('active');
+        }
+
+
+        // Toggle the navigation menu for small screens
+        const menu = document.getElementById('menu');
+        const navbar = document.getElementById('navbar');
+
+        menu.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+
+        // Close the menu when clicking on a link
+        const links = navbar.querySelectorAll('a');
+        links.forEach(link => {
+            link.addEventListener('click', () => {
+                navbar.classList.remove('active');
+            });
+        });
+    </script>
+
     <!-------Course-------->
-    <section class="course" id="About">
-        <h1 class="course">ABOUT US</h1>
-        <div class="row">
-            <div class="course-col">
-                <p class="course-col" id="crsp1">
-                    About Us – Football Academy Welcome to Football Academy, where dreams take shape, and future stars are born. Founded with passion and a vision to nurture young talent, our academy is more than just a place to train—it's a community built on dedication,
-                    discipline, and love for the beautiful game.FC Alpha Football Club Academy was founded on March 4, 2015, where there are 253 students from the age of 10 to 21 years old. The staff of this club consists of about 57 members, including
-                    technical staff, medical staff, economic staff (field maintenance) , Economists (Maintenance of the Stadium and environment), staff manager, Sports Director, General Director and Owners of the club.
-                </p>
-            </div>
-            <div class="courseimages">
-                <img src="fushaedyte.jpg" alt="" id="ft1crs">
 
-
-            </div>
+    <section class="about-section" id="about">
+        <div class="about-image">
+            <img src="fushaedyte.jpg" alt="About Image">
+        </div>
+        <div class="about-content">
+            <h2>Football and basketball squads enjoy a Christmas lunch</h2>
+            <p>
+                The Alpha football and basketball teams gathered to celebrate the holiday season with a special Christmas lunch. Players, staff, and management shared a memorable moment, reflecting on their achievements and fostering team spirit ahead of upcoming
+                challenges.
+            </p>
         </div>
     </section>
-
 
     <!------Course--------->
     <main>
-        <section class="HistoricofLiri" id="Historic">
-            <div class="museumi">
-                <img src="historiaakademise.jpg" alt="">
+        <section class="historic-section" id="historic">
+            <div class="historic-content">
+                <h2>Reliving the Historic Moments</h2>
+                <p>
+                    Alpha has a legacy of unforgettable moments that have defined football history. From record-breaking titles to legendary players, every chapter is a testament to excellence and determination. Explore the history that continues to inspire millions
+                    worldwide.
+                </p>
             </div>
-            <h1 class="HistoricofLiri" style="color: #EA3639;">Historic Of FC ALPHA</h1>
-            <p id="paragrafihistoric">The story of FC ALPHA began in 2012, when a former professional footballer, Ervin Hoxha, returned to his hometown with a vision. Ervin had spent over a decade playing in top European leagues, and upon retiring, he noticed that many talented
-                young players in his community lacked access to proper facilities and mentorship. Determined to bridge this gap, Ervin teamed up with local entrepreneurs and sports enthusiasts to launch FC ALPHA. Starting with just 20 players training
-                on a modest field, the academy quickly gained recognition for its high-quality coaching and commitment to personal development. One of the defining moments in our history came in 2015, when our under-14 team won the regional championship,
-                defeating a team that had dominated the league for five consecutive years. This victory wasn’t just about the trophy; it was proof that dedication, strategy, and teamwork could overcome any obstacle. In 2018, FC ALPHA took another leap
-                forward by building a state-of-the-art training facility, featuring professional-grade pitches, a gym, and a recovery center. This milestone enabled us to attract top coaches and provide even better opportunities for our players.</p>
-
-
-
+            <div class="historic-image">
+                <img src="historiaakademise.jpg" alt="Historic Image">
+            </div>
         </section>
+
+
 
         <style>
             @media (max-width: 768px) {
@@ -128,14 +116,14 @@
 
     <!---The work and success of the Liri company--->
     <main>
-        <div class="trainers-section" id="Coach">
+        <div class="trainers-section" id="trainers">
             <h2 class="trainers-sectioni">Trajnerët dhe Asistentët</h2>
             <div class="trainer-box">
                 <img src="trajneri.jpg" alt="Foto e Trajnerit">
                 <h3>Tomor Gashi</h3>
                 <p>Pozita: Trajner Kryesor</p>
                 <p>Eksperienca: 10+ vite në sportin e Futbollit</p>
-                <p>Specializimet: Trajnues i certifikuar nga UEFA dhe FIFA</p>
+                <p>Specializimet:  UEFA,FIFA,FFK,FSHF.</p>
                 <p>Email: tomor.g@example.com</p>
             </div>
             <div class="assistant-box">
@@ -202,7 +190,7 @@
                 </div>
             </div>
 
-            <form class="contact-form">
+            <form class="contact-form" id="contact">
                 <div class="form-row">
                     <input type="text" placeholder="Emri juaj" required>
                     <input type="email" placeholder="Email-i juaj" required>
@@ -223,7 +211,7 @@
 
     <section class="testimonial-section">
         <h2>What Our People Say</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+        <p>Evaluations from the members of our family who are present at every game!</p>
         <div class="testimonial-container">
             <!-- Testimonial Box 1 -->
             <div class="testimonial-box">
@@ -250,39 +238,89 @@
     </section>
 
 
+
     <footer>
-        <footer>
-            <div class="footer-container">
-                <!-- About Us Section -->
-                <div class="footer-section">
-                    <h3>About Us</h3>
-                    <p>We are a professional company providing top-quality products and services to our customers. Our goal is to deliver excellence in every aspect of our business.</p>
-                </div>
-
-                <!-- Contact Section -->
-                <div class="footer-section">
-                    <h3>Contact Us</h3>
-                    <p>89 rr.Ibrahim Kadriaj, Prizren, Kosov</p>
-                    <p>Phone: +123 456 7890</p>
-                    <p>Email: <a href="mailto:info@company.com">fcalpha@company.com</a></p>
-                </div>
-
-                <!-- Social Media Section -->
-                <div class="footer-section">
-                    <h3>Follow Us</h3>
-                    <div class="social-icons">
-                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145802.png" alt="Facebook" width="20"></a>
-                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145812.png" alt="Twitter" width="20"></a>
-                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" width="20"></a>
-                        <a href="#"><img src="https://cdn-icons-png.flaticon.com/512/145/145805.png" alt="Instagram" width="20"></a>
-                    </div>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Football</h3>
+                <ul>
+                    <li><a href="#">First Team</a></li>
+                    <li><a href="#">Academy</a></li>
+                    <li><a href="#">Women's Team</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Basketball</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>The Club</h3>
+                <ul>
+                    <li><a href="#">Schedule</a></li>
+                    <li><a href="#">History</a></li>
+                    <li><a href="sponsors.html">Sponsors</a></li>
+                    <li><a href="#">Values</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Bernabéu Stadium</h3>
+                <ul>
+                    <li><a href="matchdaytour.html">Tour</a></li>
+                    <li><a href="testtwotiketat.html">Tickets</a></li>
+                    <li><a href="schedule.html">Schedules</a></li>
+                </ul>
+                <div class="footer-apps">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play">
+                    <img src="appstore.svg" alt="App Store">
+                    <img src="huawei.svg" alt="Huawei App Gallery">
                 </div>
             </div>
-            <div class="footer-bottom">
-                &copy; 2024 FC ALPHA. All rights reserved.
-            </div>
-        </footer>
-        <!-- 
+        </div>
+    </footer>
+    <section id="sponsors">
+        <div class="sponsors-row">
+            <img src="emirates.svg" alt="Emirates Logo">
+            <img src="adidas.svg" alt="Adidas Logo">
+            <img src="hp.svg" alt="HP Logo">
+        </div>
+        <div class="sponsors-row">
+            <img src="mahou.svg" alt="Mahou Logo">
+            <img src="dubai.svg" alt="Dubai Logo">
+            <img src="bmw.svg" alt="BMW Logo">
+            <img src="ea-sports.svg" alt="EA Sports Logo">
+            <img src="abbot.svg" alt="Abbott Logo">
+            <img src="nivea.svg" alt="Nivea Men Logo">
+            <img src="cantabria.svg" alt="Cantabria Labs Logo">
+            <img src="linglong.svg" alt="Linglong Tire Logo">
+        </div>
+        <div class="sponsors-row">
+            <img src="easymarkets.svg" alt="Easy Markets Logo">
+            <img src="adobe.svg" alt="Adobe Logo">
+            <img src="zegna.svg" alt="Zegna Logo">
+            <img src="palladium.svg" alt="Palladium Hotel Logo">
+            <img src="daktronics.svg" alt="Daktronics Logo">
+            <img src="cisco.svg" alt="Cisco Logo">
+            <img src="softtek.svg" alt="Softtek Logo">
+            <img src="canon.svg" alt="Canon Medical Logo">
+        </div>
+        <div class="sponsors-row">
+            <img src="unicaja.svg" alt="Unicaja Logo">
+            <img src="orange.svg" alt="Orange Logo">
+            <img src="hisense.svg" alt="Hisense Logo">
+            <img src="playstation.svg" alt="PlayStation Logo">
+            <img src="codere.svg" alt="Codere Logo">
+            <img src="sanitas.svg" alt="Sanitas Logo">
+            <img src="cocacola.svg" alt="Coca Cola Logo">
+            <img src="solan.svg" alt="Solan De Cabras Logo">
+        </div>
+    </section>
+
+    <!-- 
     <script>
         var navLinks = document.getElementById("navLinks");
 

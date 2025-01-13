@@ -335,8 +335,3 @@ function showPlayers(group) {
     container.style.flexWrap = "wrap";
     container.style.justifyContent = "center";
 }
-
-function toggleMenu() {
-    const navLinks = document.getElementById('nav-links');
-    navLinks.classList.toggle('active');
-}
