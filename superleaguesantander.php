@@ -1,4 +1,9 @@
-
+super liga
+
+Leart Elezkurtaj
+​
+Gent Krasniqi
+​
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +90,7 @@
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    background: linear-gradient(135deg, #4B0082, #0000FF);
+    background: linear-gradient(135deg, #9B111E, #FF6F61);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 30px;
@@ -119,7 +124,7 @@ th, td {
 }
 
 thead {
-    background: #4B0082; /* Violet */
+    background: #FF6F61; /* Violet */
     color: #fff;
 }
 
@@ -133,13 +138,13 @@ tbody tr:hover {
 }
 
 th {
-    background: #4B0082; /* Violet */
+    background: #9B111E; /* Violet */
     color: white;
     font-weight: bold;
 }
 
 td {
-    color:  #4B0082;
+    color:  #9B111E;
     background-color: white;
 }
 
@@ -150,7 +155,7 @@ tbody tr:first-child {
 }
 
 tbody tr:first-child td {
-    border-top: 2px solid #4B0082; /* Violet */
+    border-top: 2px solid #9B111E; /* Violet */
     color: white;
 }
 
@@ -164,7 +169,7 @@ tbody tr td:first-child {
 }
 
 tbody tr:last-child td {
-    border-bottom: 2px solid #4B0082; /* Violet */
+    border-bottom: 2px solid #9B111E; /* Violet */
 }
 
 @media (max-width: 768px) {
@@ -897,7 +902,7 @@ tbody tr:last-child td {
         </div>
         <div class="match-cardone ">
             <div class="team-infoone ">
-                <img src="/git/ProjektiGL/lgekp30/Marseillelogo.png " alt="Marseille Logo ">
+                <img src="/git/ProjektiGL/lgekp30/Marsiellogo.png " alt="Marseille Logo ">
                 <span>MAR</span>
                 <span class="versus ">VS</span>
             </div>
@@ -948,7 +953,7 @@ tbody tr:last-child td {
             </tr>
             <tr>
                 <td>2</td>
-                <td>Liverpool</td>
+                <td>Real Madrid</td>
                 <td>38</td>
                 <td>21</td>
                 <td>4</td>

@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,7 +86,7 @@
     padding: 2rem;
     max-width: 1200px;
     margin: 0 auto;
-    background: linear-gradient(135deg, #4B0082, #0000FF);
+    background: linear-gradient(135deg, #32CD32, #228B22);
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 30px;
@@ -119,38 +120,38 @@ th, td {
 }
 
 thead {
-    background: #4B0082; /* Violet */
+    background: #32CD32;
     color: #fff;
 }
 
 tbody tr:nth-child(even) {
-    background: #E6E6FA; /* Light Violet */
+    background: #E6E6FA;
 }
 
 tbody tr:hover {
-    background: #ADD8E6; /* Light Blue */
+    background: #ADD8E6;
     cursor: pointer;
 }
 
 th {
-    background: #4B0082; /* Violet */
+    background: #228B22;
     color: white;
     font-weight: bold;
 }
 
 td {
-    color:  #4B0082;
+    color:  #228B22;
     background-color: white;
 }
 
 tbody tr:first-child {
-    background: #0000FF; /* Blue */
+    background: #228B22;
     color: #fff;
     font-weight: bold;
 }
 
 tbody tr:first-child td {
-    border-top: 2px solid #4B0082; /* Violet */
+    border-top: 2px solid #228B22;
     color: white;
 }
 
@@ -164,7 +165,7 @@ tbody tr td:first-child {
 }
 
 tbody tr:last-child td {
-    border-bottom: 2px solid #4B0082; /* Violet */
+    border-bottom: 2px solid #228B22;
 }
 
 @media (max-width: 768px) {
@@ -897,7 +898,7 @@ tbody tr:last-child td {
         </div>
         <div class="match-cardone ">
             <div class="team-infoone ">
-                <img src="/git/ProjektiGL/lgekp30/Marseillelogo.png " alt="Marseille Logo ">
+                <img src="/git/ProjektiGL/lgekp30/Marsiellogo.png " alt="Marseille Logo ">
                 <span>MAR</span>
                 <span class="versus ">VS</span>
             </div>
