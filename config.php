@@ -1,9 +1,9 @@
 <?php
 // Të dhënat e lidhjes me bazën e të dhënave
-$host = 'localhost'; // Adresa e host-it (zakonisht localhost)
+$host = 'localhost'; // Adresa e host-it 
 $user = 'root';      // Emri i përdoruesit për MySQL
-$password = '';      // Fjalëkalimi për MySQL (lëre bosh nëse përdor XAMPP)
-$database = 'user_management'; // Emri i bazës së të dhënave
+$password = '';      // Fjalëkalimi për MySQL 
+$database = 'menagjimi_userave'; // Emri i bazës së të dhënave
 
 // Krijo një lidhje me bazën e të dhënave
 $conn = new mysqli($host, "root", "", $database);
@@ -14,5 +14,4 @@ if ($conn->connect_error) {
 }
 
 ?>
-
 
