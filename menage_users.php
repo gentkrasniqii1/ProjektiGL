@@ -1,6 +1,6 @@
 <?php
 session_start();
-require 'connect.php';
+require 'config.php';
 
 // Check if the user is an admin
 if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
@@ -15,12 +15,12 @@ if (isset($_GET['delete'])) {
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("i", $user_id);
     $stmt->execute();
-    header('Location: manage_users.php');
+    header('Location: menage_users.php');
     exit();
 }
 
 // Fetch all users
-$sql = "SELECT id, first_name, last_name, email, role FROM users";
+$sql = "SELECT id, first_name, last_name, email,password, role FROM useri";
 $result = $conn->query($sql);
 ?>
 
@@ -130,6 +130,7 @@ tr:nth-child(even) {
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
+                    <th>Password</th>
                     <th>Role</th>
                     <th>Actions</th>
                 </tr>
@@ -141,10 +142,11 @@ tr:nth-child(even) {
                     <td><?= htmlspecialchars($user['first_name']) ?></td>
                     <td><?= htmlspecialchars($user['last_name']) ?></td>
                     <td><?= htmlspecialchars($user['email']) ?></td>
+                    <td><?= htmlspecialchars($user['password']) ?></td>
                     <td><?= htmlspecialchars($user['role']) ?></td>
                     <td>
                         <a class="edit-btn" href="edit_user.php?id=<?= $user['id'] ?>">Edit</a> 
-                        <a class="delete-btn" href="manage_users.php?delete=<?= $user['id'] ?>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+                        <a class="delete-btn" href="menage_users.php?delete=<?= $user['id'] ?>" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
                     </td>
                 </tr>
                 <?php endwhile; ?>
