@@ -2,7 +2,7 @@
 $host = 'localhost';
 $user = 'root';
 $password = '';
-$dbname = 'tickets_db';
+$dbname = 'menagjimi_tiketave';
 
 $conn = new mysqli($host, $user, $password, $dbname);
 
