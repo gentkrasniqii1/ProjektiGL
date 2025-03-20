@@ -1,5 +1,4 @@
 <?php include 'navbarfix.php'; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +9,198 @@
     <link rel="stylesheet" href="test.css">
     <script src="Script.js"></script>
 
+    <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #EFF1F3;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Georgia', serif;
+      color: #0056b3;
+    }
+
+    a {
+      color: #0056b3;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 70vh;
+      background-image: url('/git/projektiGL/historiftupassion.jpg'); /* Replace with your image */
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.5rem;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* History Section */
+    .history-section {
+      margin-bottom: 50px;
+      color: #444;
+    }
+
+    .history-section p {
+      text-align: justify;
+      margin-bottom: 20px;
+    }
+
+    /* Founders Section */
+    .founders {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+
+    .founder {
+      flex: 1 1 calc(33.33% - 20px);
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .founder:hover {
+      transform: scale(1.05);
+    }
+
+    .founder img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .founder h3 {
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+
+    .founder p {
+      padding: 0 10px 20px;
+      color: #555;
+    }
+
+    /* Gallery Section */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Timeline Section */
+    .timeline {
+      background: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin-bottom: 40px;
+    }
+
+    .timeline h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #0056b3;
+    }
+
+    .timeline ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .timeline ul li {
+      position: relative;
+      padding-left: 40px;
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .timeline ul li::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      background-color: #0056b3;
+      border-radius: 50%;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      background: #f8f9fa;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .testimonial {
+      font-style: italic;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+      font-weight: bold;
+      margin-top: 10px;
+      color: #333;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .founder {
+        flex: 1 1 100%;
+      }
+    }
+  </style>
+
 </head>
 
 <body>
@@ -17,69 +208,91 @@
 
 
 
+    <div class="hero">
+    <div>
+      <h1>Our Football Club's History</h1>
+      <p>A journey through time, passion, and achievements</p>
+    </div>
+  </div>
 
-    <section id="contact-section" class="contact-section">
-            <h2>Kontakto Me Ne</h2>
-            <p>Ne jemi këtu për t'ju ndihmuar. Plotësoni formularin më poshtë dhe do t'ju përgjigjemi sa më shpejt të jetë e mundur.</p>
+  <!-- Main Content -->
+  <div class="container">
+    <!-- History Section -->
+    <section class="history-section">
+      <h2 class="section-title">The Story of Our Club</h2>
+      <p>
+        Founded in [Year], our football club is a symbol of resilience and ambition. Starting from a small group of enthusiasts,
+        the club quickly gained popularity, winning hearts and trophies alike.
+        From early challenges to becoming an internationally acclaimed club, every chapter in our story is a testament to perseverance.
+      </p>
+      <p>
+        Our club's milestones include historic wins, unforgettable matches, and nurturing world-class talent.
+        We have always stayed true to our mission: to inspire and bring people together through the love of football.
+      </p>
+    </section>
 
-            <div class="contact-info">
-                <div class="info-box">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h4>Adresa:</h4>
-                    <p>Prishtinë, Kosovë</p>
-                </div>
-                <div class="info-box">
-                    <i class="fas fa-phone-alt"></i>
-                    <h4>Telefoni:</h4>
-                    <p>+383 44 123 456</p>
-                </div>
-                <div class="info-box">
-                    <i class="fas fa-envelope"></i>
-                    <h4>Email:</h4>
-                    <p>info@example.com</p>
-                </div>
-            </div>
+    <!-- Founders Section -->
+    <section>
+      <h2 class="section-title">Founders of the Club</h2>
+      <div class="founders">
+        <div class="founder">
+          <img src="/git/projektiGL/histori/historiperson1.png" alt="Founder 1">
+          <h3>John Doe</h3>
+          <p>A visionary leader who started it all.</p>
+        </div>
+        <div class="founder">
+          <img src="/git/projektiGL/histori/historiperson2.png" alt="Founder 2">
+          <h3>Jane Smith</h3>
+          <p>The strategist who built a winning legacy.</p>
+        </div>
+        <div class="founder">
+          <img src="/git/projektiGL/histori/historiperson3.png" alt="Founder 3">
+          <h3>Michael Johnson</h3>
+          <p>Shaping the philosophy of our team.</p>
+        </div>
+      </div>
+    </section>
 
-            <?php
+    <!-- Gallery Section -->
+    <section>
+      <h2 class="section-title">Gallery of Memorable Moments</h2>
+      <div class="gallery">
+        <img src="/git/projektiGL/histori/historifemnat.png" alt="Moment 1">
+        <img src="/git/projektiGL/histori/historifans.png" alt="Moment 2">
+        <img src="/git/projektiGL/histori/historifutboll2.png" alt="Moment 3">
+      </div>
+      <div class="gallery">
+        <img src="/git/projektiGL/histori/historipassionfut.png" alt="Moment 1">
+        <img src="/git/projektiGL/histori/historipassion.png" alt="Moment 2">
+        <img src="/git/projektiGL/histori/historifootball.png" alt="Moment 3">
+      </div>
+      <div class="gallery">
+        <img src="/git/projektiGL/histori/historiball.png" alt="Moment 1">
+        <img src="/git/projektiGL/histori/historitraning.png" alt="Moment 2">
+        <img src="/git/projektiGL/histori/historigame.png" alt="Moment 3">
+      </div>
 
-$isAdmin = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true;
+    </section>
 
+    <!-- Timeline Section -->
+    <section>
+      <div class="timeline">
+        <h2>Milestones</h2>
+        <ul>
+          <li><strong>[Year]</strong>: Founded in [City].</li>
+          <li><strong>[Year]</strong>: Won first championship.</li>
+        </ul>
+      </div>
+    </section>
 
+    <!-- Testimonials -->
+    <section class="testimonials">
+      <h2 class="section-title">What Fans Say</h2>
+      <p class="testimonial">"This club has changed my life!"</p>
+      <p class="testimonial-author">- Loyal Fan</p>
+    </section>
+  </div>
 
-    if (isset($_SESSION['success'])) {
-        echo "<p class='success'>" . $_SESSION['success'] . "</p>";
-        unset($_SESSION['success']);
-    }
-
-    if (isset($_SESSION['error'])) {
-        echo "<p class='error'>" . $_SESSION['error'] . "</p>";
-        unset($_SESSION['error']);
-    }
-    ?>
-
-            <form  class="contact-form" id="contact" method="POST" action="proces_contact.php">
-                <div class="form-row">
-                    <input type="text"  name="name"placeholder="Emri juaj" required>
-                    <input type="email"  name="email"placeholder="Email-i juaj" required>
-                </div>
-                <div class="form-row">
-                    <input type="text" name="phone" placeholder="Numri i telefonit" required>
-                    <input type="text" name="address" placeholder="Adresa juaj">
-                </div>
-                <textarea  name="message"placeholder="Mesazhi juaj" rows="5" required></textarea>
-                <button type="submit" class="submit-btn">Dërgo Mesazhin</button>
-            </form>
-        </section>
-
-
-
-
-
-
-
-
-
-      
 
     <footer class="footer ">
             <div class="footer-content ">
@@ -232,17 +445,4 @@ $isAdmin = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] =
 
         </body>
         </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
 

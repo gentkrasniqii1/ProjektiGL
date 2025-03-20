@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,40 +13,62 @@
             margin: 0;
             padding: 0;
         }
+        
         header {
             text-align: center;
             padding: 20px;
             background: rgba(0, 0, 0, 0.5);
         }
+        
         header h1 {
             margin: 0;
             font-size: 2.5em;
             animation: fadeIn 2s;
         }
+        
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
-        .history, .cards, .table-section {
+        
+        .history,
+        .cards,
+        .table-section {
             padding: 20px;
             text-align: center;
             margin: 20px 0;
         }
-        .history h2, .cards h2, .table-section h2 {
+        
+        .history h2,
+        .cards h2,
+        .table-section h2 {
             font-size: 2em;
             margin-bottom: 20px;
             position: relative;
             animation: slideIn 1s;
         }
+        
         @keyframes slideIn {
-            from { top: -50px; opacity: 0; }
-            to { top: 0; opacity: 1; }
+            from {
+                top: -50px;
+                opacity: 0;
+            }
+            to {
+                top: 0;
+                opacity: 1;
+            }
         }
+        
         .cards {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
         }
+        
         .card {
             background: rgba(0, 0, 0, 0.5);
             padding: 20px;
@@ -54,39 +77,52 @@
             margin: 10px;
             transition: transform 0.3s;
         }
+        
         .card:hover {
             transform: scale(1.05);
         }
+        
         .card img {
             width: 100%;
             border-radius: 10px;
         }
+        
         .card h3 {
             margin: 10px 0;
         }
+        
         table {
             width: 100%;
             border-collapse: collapse;
             margin: 20px 0;
         }
-        table, th, td {
+        
+        table,
+        th,
+        td {
             border: 1px solid white;
         }
-        th, td {
+        
+        th,
+        td {
             padding: 10px;
             text-align: center;
         }
+        
         th {
             background: rgba(0, 0, 0, 0.7);
         }
+        
         td {
             background: rgba(0, 0, 0, 0.5);
         }
+        
         @media (max-width: 768px) {
             .card {
                 width: 45%;
             }
         }
+        
         @media (max-width: 480px) {
             .card {
                 width: 100%;
@@ -94,13 +130,15 @@
         }
     </style>
 </head>
+
 <body>
     <header>
         <h1>Welcome to the Champions League!</h1>
     </header>
     <section class="history">
         <h2>History of the Champions League</h2>
-        <p>The UEFA Champions League is an annual club football competition organised by the Union of European Football Associations (UEFA) and contested by top-division European clubs. It is one of the most prestigious tournaments in the world and the most prestigious club competition in European football.</p>
+        <p>The UEFA Champions League is an annual club football competition organised by the Union of European Football Associations (UEFA) and contested by top-division European clubs. It is one of the most prestigious tournaments in the world and the most
+            prestigious club competition in European football.</p>
     </section>
     <section class="table-section">
         <h2>League Phase Table</h2>
@@ -156,4 +194,5 @@
         // JavaScript for additional functionality can be added here
     </script>
 </body>
+
 </html>

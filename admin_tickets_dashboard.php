@@ -2,42 +2,23 @@
 session_start();
 
 // Database connection
-$conn = new mysqli("localhost", "root", "", "tickets_db");
+$conn = new mysqli("localhost", "root", "", "menagjimi_tiketave");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// Handle Update and Delete Actions
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
+// Handle Delete Action
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action']) && $_POST['action'] == 'delete') {
     $id = (int)$_POST['id'];
-
-    if ($_POST['action'] == 'delete') {
-        // Delete ticket
-        $stmt = $conn->prepare("DELETE FROM tickets WHERE id = ?");
-        $stmt->bind_param("i", $id);
-        if ($stmt->execute()) {
-            $_SESSION['success_message'] = "Ticket deleted successfully!";
-        } else {
-            $_SESSION['error_message'] = "Failed to delete ticket: " . $stmt->error;
-        }
-        $stmt->close();
-    } elseif ($_POST['action'] == 'update') {
-        // Update ticket
-        $ticket_type = $conn->real_escape_string($_POST['ticketType']);
-        $ticket_quantity = (int)$_POST['ticketQuantity'];
-        $total_price = (float)$_POST['totalPrice'];
-
-        $stmt = $conn->prepare("UPDATE tickets SET ticket_type = ?, ticket_quantity = ?, total_price = ? WHERE id = ?");
-        $stmt->bind_param("sidi", $ticket_type, $ticket_quantity, $total_price, $id);
-        if ($stmt->execute()) {
-            $_SESSION['success_message'] = "Ticket updated successfully!";
-        } else {
-            $_SESSION['error_message'] = "Failed to update ticket: " . $stmt->error;
-        }
-        $stmt->close();
+    $stmt = $conn->prepare("DELETE FROM tickets WHERE id = ?");
+    $stmt->bind_param("i", $id);
+    if ($stmt->execute()) {
+        $_SESSION['success_message'] = "Ticket deleted successfully!";
+    } else {
+        $_SESSION['error_message'] = "Failed to delete ticket: " . $stmt->error;
     }
-
-    header("Location: tickets_dashboard.php");
+    $stmt->close();
+    header("Location: admin_tickets_dashboard.php");
     exit;
 }
 
@@ -57,106 +38,120 @@ if ($result) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-     <style>
+    <style>
+        /* General Styling */
         body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 20px;
-    text-align: center;
-}
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
 
-h1 {
-    color: #333;
-    margin-bottom: 20px;
-}
+        h1 {
+            color: #343a40;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
 
-.success-message {
-    color: green;
-    font-weight: bold;
-}
+        /* Messages */
+        .success-message, .error-message {
+            font-weight: bold;
+            padding: 10px;
+            width: 50%;
+            margin: 10px auto;
+            border-radius: 5px;
+            text-align: center;
+        }
 
-.error-message {
-    color: red;
-    font-weight: bold;
-}
+        .success-message {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
 
-table {
-    width: 80%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    background: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
+        .error-message {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
-}
+        /* Table Styling */
+        table {
+            width: 90%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #ffffff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
 
-th {
-    background-color: #007bff;
-    color: white;
-}
+        th, td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
 
-tr:nth-child(even) {
-    background-color: #f9f9f9;
-}
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+        }
 
-form {
-    display: inline-block;
-    margin: 5px;
-}
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
 
-input[type="text"], input[type="number"] {
-    padding: 8px;
-    margin: 5px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
+        tr:hover {
+            background-color: #e9ecef;
+        }
 
-button {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-}
+        /* Buttons & Links */
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            padding: 8px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
 
-.delete-btn {
-    background-color: #dc3545;
-    color: white;
-}
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
 
-.delete-btn:hover {
-    background-color: #c82333;
-}
+        .update-link {
+            background-color: #ffc107;
+            color: black;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
 
-.update-btn {
-    background-color: #28a745;
-    color: white;
-}
+        .update-link:hover {
+            background-color: #e0a800;
+        }
 
-.update-btn:hover {
-    background-color: #218838;
-}
+        .logout-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #ff5733;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
 
-.logout-btn {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 10px 15px;
-    background-color: #ff5733;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.logout-btn:hover {
-    background-color: #e04e2c;
-}
-
-        </style>
+        .logout-btn:hover {
+            background-color: #e04e2c;
+        }
+    </style>
 </head>
 <body>
 
@@ -176,8 +171,13 @@ button {
             <tr>
                 <th>ID</th>
                 <th>Customer Name</th>
+                <th>Email</th>
+                <th>Phone</th>
                 <th>Ticket Type</th>
                 <th>Quantity</th>
+                <th>Section</th>
+                <th>Seat Preference</th>
+                <th>Payment Method</th>
                 <th>Total Price</th>
                 <th>Actions</th>
             </tr>
@@ -188,32 +188,30 @@ button {
                     <tr>
                         <td><?php echo $ticket['id']; ?></td>
                         <td><?php echo $ticket['customer_name']; ?></td>
-                        <td><?php echo $ticket['ticket_type']; ?></td>
+                        <td><?php echo $ticket['customer_email']; ?></td>
+                        <td><?php echo $ticket['phone']; ?></td>
+                        <td><?php echo ucfirst($ticket['ticket_type']); ?></td>
                         <td><?php echo $ticket['ticket_quantity']; ?></td>
-                        <td>$<?php echo $ticket['total_price']; ?></td>
+                        <td><?php echo ucfirst($ticket['stadium_section']); ?></td>
+                        <td><?php echo ucfirst($ticket['seat_preference']); ?></td>
+                        <td><?php echo ucfirst($ticket['payment_method']); ?></td>
+                        <td>$<?php echo number_format($ticket['total_price'], 2); ?></td>
                         <td>
+                            <!-- Update Link -->
+                            <a class="update-link" href="edit_tickets.php?id=<?php echo $ticket['id']; ?>">Update</a>
+                            
                             <!-- Delete Button -->
-                            <form method="POST">
+                            <form method="POST" style="display:inline;">
                                 <input type="hidden" name="id" value="<?php echo $ticket['id']; ?>">
                                 <input type="hidden" name="action" value="delete">
                                 <button class="delete-btn" type="submit">Delete</button>
-                            </form>
-
-                            <!-- Update Form -->
-                            <form method="POST">
-                                <input type="hidden" name="id" value="<?php echo $ticket['id']; ?>">
-                                <input type="hidden" name="action" value="update">
-                                <input type="text" name="ticketType" value="<?php echo $ticket['ticket_type']; ?>" required>
-                                <input type="number" name="ticketQuantity" value="<?php echo $ticket['ticket_quantity']; ?>" min="1" required>
-                                <input type="number" name="totalPrice" value="<?php echo $ticket['total_price']; ?>" step="0.01" required>
-                                <button class="update-btn" type="submit">Update</button>
                             </form>
                         </td>
                     </tr>
                 <?php endforeach; ?>
             <?php else: ?>
                 <tr>
-                    <td colspan="6">No tickets found.</td>
+                    <td colspan="11">No tickets found.</td>
                 </tr>
             <?php endif; ?>
         </tbody>
@@ -223,4 +221,5 @@ button {
 
 </body>
 </html>
+
 <?php $conn->close(); ?>

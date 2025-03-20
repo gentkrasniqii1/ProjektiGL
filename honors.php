@@ -16,70 +16,209 @@
 
 
 
-
-
-    <section id="contact-section" class="contact-section">
-            <h2>Kontakto Me Ne</h2>
-            <p>Ne jemi këtu për t'ju ndihmuar. Plotësoni formularin më poshtë dhe do t'ju përgjigjemi sa më shpejt të jetë e mundur.</p>
-
-            <div class="contact-info">
-                <div class="info-box">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h4>Adresa:</h4>
-                    <p>Prishtinë, Kosovë</p>
-                </div>
-                <div class="info-box">
-                    <i class="fas fa-phone-alt"></i>
-                    <h4>Telefoni:</h4>
-                    <p>+383 44 123 456</p>
-                </div>
-                <div class="info-box">
-                    <i class="fas fa-envelope"></i>
-                    <h4>Email:</h4>
-                    <p>info@example.com</p>
-                </div>
-            </div>
-
-            <?php
-
-$isAdmin = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true;
-
-
-
-    if (isset($_SESSION['success'])) {
-        echo "<p class='success'>" . $_SESSION['success'] . "</p>";
-        unset($_SESSION['success']);
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      background-color: #CAC4CE;
+      color: #000;
     }
 
-    if (isset($_SESSION['error'])) {
-        echo "<p class='error'>" . $_SESSION['error'] . "</p>";
-        unset($_SESSION['error']);
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
     }
-    ?>
 
-            <form  class="contact-form" id="contact" method="POST" action="proces_contact.php">
-                <div class="form-row">
-                    <input type="text"  name="name"placeholder="Emri juaj" required>
-                    <input type="email"  name="email"placeholder="Email-i juaj" required>
-                </div>
-                <div class="form-row">
-                    <input type="text" name="phone" placeholder="Numri i telefonit" required>
-                    <input type="text" name="address" placeholder="Adresa juaj">
-                </div>
-                <textarea  name="message"placeholder="Mesazhi juaj" rows="5" required></textarea>
-                <button type="submit" class="submit-btn">Dërgo Mesazhin</button>
-            </form>
-        </section>
+    .header {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      font-size: 28px;
+      margin: 0;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .tabs {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #e0e0e0;
+    }
+
+    .tabs a {
+      text-decoration: none;
+      color: #6c757d;
+      font-weight: bold;
+      padding: 10px 0;
+      position: relative;
+    }
+
+    .tabs a.active {
+      color: #000;
+    }
+
+    .tabs a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background-color: #000;
+    }
+
+    .list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+    }
+
+    .item img {
+      max-width: 150px;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .item-content {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+    .item-content h3 {
+      font-size: 20px;
+      margin: 0;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .item-content p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      color: #666;
+    }
+
+    @media (min-width: 768px) {
+      .list {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .item img.trophy {
+      max-width: 100px;
+    }
+
+    .year-list {
+      display: flex;
+      gap: 10px;
+      font-size: 14px;
+      flex-wrap: wrap;
+    }
+  </style>
 
 
+  <div class="container">
+    <div class="header">
+      <h1>List of Winners</h1>
+    </div>
+
+    <div class="tabs">
+      <a href="#" class="active">Football</a>
+    
+    </div>
+
+    <div class="list">
+      <div class="item">
+        <img src="bestclubrbg.png" alt="The Best Club Trophy" class="trophy">
+        <div class="item-content">
+          <h3>The Best Club of the 20th Century FIFA Trophy</h3>
+          <p>11 December 2000</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="uclrbg.png" alt="Champions League Trophy" class="trophy">
+        <div class="item-content">
+          <h3>15 Champions Leagues</h3>
+          <p class="year-list">1955-56, 1956-57, 1957-58, 1958-59, 1959-60, 1965-66, 1997-98, 1999-00, 2001-02, 2013-14, 2015-16, 2016-17, 2017-18, 2021-22, 2023-24</p>
+        </div>
+      </div>
+
+      <!-- Additional Titles as shown in the photo -->
+      <div class="item">
+        <img src="copadelreyrbg.png" alt="La Liga Trophy" class="trophy">
+        <div class="item-content">
+          <h3>10 La Liga Titles</h3>
+          <p class="year-list">2001-02 to 2023-24</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="supercuprbg.png" alt="Copa del Rey Trophy" class="trophy">
+        <div class="item-content">
+          <h3>5 Copa del Rey Titles</h3>
+          <p>2009-10 to 2021-22</p>
+        </div>
+      </div>
+
+      <div class="item">
+        <img src="supercuptworbg.png" alt="UEFA Super Cup Trophy" class="trophy">
+        <div class="item-content">
+          <h3>4 UEFA Super Cups</h3>
+          <p>2002, 2014, 2016, 2022</p>
+        </div>
+      </div>
+      <div class="item">
+        <img src="facuprbg.png" alt="UEFA Super Cup Trophy" class="trophy">
+        <div class="item-content">
+          <h3>4 UEFA Super Cups</h3>
+          <p>2002, 2014, 2016, 2022</p>
+        </div>
+      </div>
+         
+      <div class="item">
+        <img src="carabaocuprbg.png" alt="UEFA Super Cup Trophy" class="trophy">
+        <div class="item-content">
+          <h3>4 UEFA Super Cups</h3>
+          <p>2002, 2014, 2016, 2022</p>
+        </div>
+      </div>
 
 
+      <div class="item">
+        <img src="clubwcrbg.png" alt="FIFA Club World Cups Trophy" class="trophy">
+        <div class="item-content">
+          <h3>3 FIFA Club World Cups</h3>
+          <p>2014, 2016, 2018</p>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-
-
-
-      
+             
+   
 
     <footer class="footer ">
             <div class="footer-content ">
@@ -232,17 +371,3 @@ $isAdmin = isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] =
 
         </body>
         </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
