@@ -8,10 +8,6 @@
 body {
     margin: 0;
     padding: 0;
-<<<<<<< HEAD
-=======
-    box-sizing: border-box;
->>>>>>> 2689c5d45bcf6081e7d0df6ee8cfafb01ae600a1
 }
 
 header {
@@ -78,11 +74,7 @@ nav a:hover {
 }
 
 
-<<<<<<< HEAD
 /*Responsive Design*/
-=======
-/* Responsive Design */
->>>>>>> 2689c5d45bcf6081e7d0df6ee8cfafb01ae600a1
 
 @media (max-width: 768px) {
     nav {
@@ -184,7 +176,6 @@ nav a:hover {
 /*---------About---------*/
 
 .about-section {
-<<<<<<< HEAD
     padding: 20px;
     display: flex;
     align-items: center;
@@ -192,12 +183,6 @@ nav a:hover {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.about-section:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .about-image {
@@ -212,62 +197,20 @@ nav a:hover {
 
 .about-content {
     flex: 1;
-=======
->>>>>>> 2689c5d45bcf6081e7d0df6ee8cfafb01ae600a1
     padding: 20px;
-    display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-<<<<<<< HEAD
 .about-content h2 {
     font-size: 24px;
     color: #fff;
     margin-bottom: 15px;
 }
 
-=======
-.about-section:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-}
-
-.about-image {
-    flex: 1;
-}
-
-.about-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.about-content {
-    flex: 1;
-    padding: 20px;
-    background-color: #f7f9fc;
-}
-
-.about-content h2 {
-    font-size: 24px;
-    color: #002b5c;
-    margin-bottom: 15px;
-}
-
->>>>>>> 2689c5d45bcf6081e7d0df6ee8cfafb01ae600a1
 .about-content p {
     font-size: 16px;
     color: #555;
     line-height: 1.6;
-<<<<<<< HEAD
     color: rgba(0, 0, 0, 1);
-=======
->>>>>>> 2689c5d45bcf6081e7d0df6ee8cfafb01ae600a1
 }
 
 @media (max-width: 768px) {
@@ -293,12 +236,6 @@ nav a:hover {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.historic-section:hover {
-    transform: scale(1.03);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .historic-content {
@@ -660,7 +597,6 @@ footer {
     transition: color 0.3s;
 }
 
-<<<<<<< HEAD
 .footer-column ul li a:hover {
     color: #000;
 }
@@ -668,14 +604,6 @@ footer {
 .footer-apps {
     display: flex;
     gap: 10px;
-=======
-.social-icons a:hover {
-    background-color: #f5c518;
-}
-
-.footer-bottom {
-    text-align: center;
->>>>>>> 2689c5d45bcf6081e7d0df6ee8cfafb01ae600a1
     margin-top: 20px;
 }
 
@@ -1815,14 +1743,6 @@ nav img #logoLiri2 {
     transform: translateY(-5px);
 }
 
-<<<<<<< HEAD
-=======
-.card-footer a {
-    text-decoration: none;
-    color: white;
-}
-
->>>>>>> 2689c5d45bcf6081e7d0df6ee8cfafb01ae600a1
 .card img {
     width: 100%;
     height: 150px;
@@ -1861,28 +1781,6 @@ nav img #logoLiri2 {
     }
 }
 
-<<<<<<< HEAD
-=======
-/* Stilizimi i butonave */
-.event-button {
-    margin-top: 10px;
-    padding: 10px 15px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.event-button:hover {
-    background-color: #0056b3;
-    transform: scale(1.05);
-}
-
->>>>>>> 2689c5d45bcf6081e7d0df6ee8cfafb01ae600a1
 
 /* Sponsors */
 
@@ -2107,7 +2005,6 @@ nav img #logoLiri2 {
     right: 10px;
 }
 
-<<<<<<< HEAD
 
 /*womenteam*/
 
@@ -2193,8 +2090,6 @@ nav img #logoLiri2 {
     border-radius: 0 5px 5px 0;
 }
 
-=======
->>>>>>> 2689c5d45bcf6081e7d0df6ee8cfafb01ae600a1
 @media (max-width: 768px) {
     .carousel-card img {
         height: 150px;
@@ -2206,7 +2101,6 @@ nav img #logoLiri2 {
 }
 
 
-<<<<<<< HEAD
 /*matchdaytour*/
 
 .container {
@@ -2290,8 +2184,6 @@ nav img #logoLiri2 {
 }
 
 
-=======
->>>>>>> 2689c5d45bcf6081e7d0df6ee8cfafb01ae600a1
 /* Responsive Design */
 
 @media (max-width: 768px) {
