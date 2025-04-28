@@ -1,6 +1,6 @@
 <?php
 // Database connection
-$conn = new mysqli("localhost", "root", "", "contact_db");
+$conn = new mysqli("localhost", "root", "", "menagjimi_kontakteve");
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);

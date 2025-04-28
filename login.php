@@ -1,49 +1,37 @@
 <?php
+include 'config.php';
 session_start();
-require 'config.php';
-
-
-
-// Set session timeout duration (in seconds)
-$timeout_duration = 1800;
-
-// Check if the session is timed out
-if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $timeout_duration) {
-    session_unset();
-    session_destroy();
-    header('Location: loginandregister.php?timeout=true');
-    exit();
-}
-
-
-
-echo password_hash('admin123', PASSWORD_BCRYPT);
-
-
-
-
-// Validate CSRF token
-
-
-
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    if (isset($_POST['email']) && isset($_POST['password'])) {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
 
-    $sql = "SELECT * FROM users WHERE email = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-    $user = $result->fetch_assoc();
+        $query = $conn->prepare("SELECT * FROM useri WHERE email = ?");
+        $query->bind_param("s", $email);
+        $query->execute();
+        $result = $query->get_result();
 
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user_id'] = $user['id'];
-        $_SESSION['role'] = $user['role'];
-        header('Location: dashboard.php');
-    } else {
-        echo 'Invalid email or password.';
+        if ($result->num_rows > 0) {
+            $user = $result->fetch_assoc();
+            if (password_verify($password, $user['password'])) {
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['first_name'] = $user['first_name'];
+                $_SESSION['role'] = $user['role']; // Assuming 'role' column exists in database
+
+                // Redirect admin to dashboard, users to index.php
+                if ($user['role'] === 'admin') {
+                    header('Location: dashboard.php'); 
+                } else {
+                    header('Location: index.php'); 
+                }
+                exit();
+            } else {
+                echo "<script>alert('Incorrect password!');</script>";
+            }
+        } else {
+            echo "<script>alert('User does not exist!');</script>";
+        }
     }
 }
 ?>

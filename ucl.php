@@ -1,3 +1,4 @@
+<?php include 'navbarfix.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +12,7 @@
             margin: 0;
             font-family: Arial, sans-serif;
         }
-        
+       
         .navbar {
             display: flex;
             align-items: center;
@@ -22,46 +23,46 @@
             position: relative;
             z-index: 2;
         }
-        
+       
         .navbar .logo {
             display: flex;
             align-items: center;
         }
-        
+       
         .navbar .logo img {
             height: 40px;
             margin-right: 10px;
         }
-        
+       
         .navbar .links {
             display: flex;
             align-items: center;
             gap: 20px;
             margin: 0 auto;
         }
-        
+       
         .navbar .links a {
             text-decoration: none;
             color: #000;
             font-size: 16px;
             transition: color 0.3s;
         }
-        
+       
         .navbar .links a:hover {
             color: #0056b3;
         }
-        
+       
         .navbar .icons {
             display: flex;
             align-items: center;
             gap: 10px;
             margin-right: 30px;
         }
-        
+       
         .navbar .icons img {
             height: 30px;
         }
-        
+       
         .navbar .sign-in {
             display: flex;
             align-items: center;
@@ -74,7 +75,7 @@
             transition: all 0.3s;
             margin-right: 10px;
         }
-        
+       
         .navbar .sign-in:hover {
             background-color: #0056b3;
             color: #fff;
@@ -193,18 +194,18 @@ tbody tr:last-child td {
             transition: transform 0.3s;
             z-index: 3;
         }
-        
+       
         .menu::after {
             content: "☰";
             font-size: 20px;
         }
-        
+       
         .menu.active::after {
             content: "\00d7";
             /* Unicode for 'X' */
             font-size: 24px;
         }
-        
+       
         .overlay {
             position: fixed;
             top: 0;
@@ -216,11 +217,11 @@ tbody tr:last-child td {
             display: none;
             z-index: 1;
         }
-        
+       
         .overlay.active {
             display: block;
         }
-        
+       
         .menu-content {
             position: fixed;
             top: 0;
@@ -233,90 +234,90 @@ tbody tr:last-child td {
             transition: transform 0.3s;
             z-index: 2;
         }
-        
+       
         .menu-content.active {
             transform: translateX(0);
         }
-        
+       
         .menu-content ul {
             list-style: none;
             padding: 20px;
             margin: 0;
         }
-        
+       
         .menu-content ul li {
             margin: 15px 0;
             display: block;
         }
-        
+       
         .menu-content ul li a {
             text-decoration: none;
             color: #000;
             font-size: 18px;
         }
-        
+       
         .menu-content ul li .submenu {
             margin-top: 10px;
             padding-left: 15px;
         }
-        
+       
         .menu-content ul li .submenu a {
             font-size: 16px;
             color: #555;
         }
-        
+       
         .menu-content ul li .submenu a:hover {
             color: #000;
         }
-        
+       
         .footer {
             background-color: #f8f9fa;
             padding: 20px;
         }
-        
+       
         .footer-content {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             gap: 20px;
         }
-        
+       
         .footer-column {
             flex: 1 1 150px;
             min-width: 150px;
         }
-        
+       
         .footer-column h4 {
             margin-bottom: 15px;
             font-size: 16px;
             color: #343a40;
         }
-        
+       
         .footer-column ul {
             list-style-type: none;
         }
-        
+       
         .footer-column ul li {
             margin-bottom: 10px;
         }
-        
+       
         .footer-column ul li a {
             text-decoration: none;
             color: #495057;
             font-size: 14px;
         }
-        
+       
         .footer-column ul li a:hover {
             text-decoration: underline;
         }
-        
+       
         .social-links {
             display: flex;
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
         }
-        
+       
         .social-links a img {
             width: 40px;
             height: 40px;
@@ -328,11 +329,11 @@ tbody tr:last-child td {
             text-decoration: none;
             font-size: 18px;
         }
-        
+       
         .social-links img:hover {
             background-color: skyblue;
         }
-        
+       
         @media (max-width: 768px) {
             .footer-content {
                 flex-direction: column;
@@ -346,7 +347,7 @@ tbody tr:last-child td {
                 justify-content: center;
             }
         }
-        
+       
         @media (max-width: 768px) {
             .navbar {
                 flex-wrap: wrap;
@@ -383,65 +384,7 @@ tbody tr:last-child td {
 </head>
 
 <body>
-    <div class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="Real Madrid">
-        </div>
-        <div class="links">
-            <a href="index.php">Home</a>
-            <a href="tickets.php">Tickets</a>
-            <a href="shop.php">Shop</a>
-            <a href="sponsors.php">Sponsors</a>
-            <a href="contact.php">Contact</a>
-            <a href="matchdaytour.php">FCA Tour</a>
-        </div>
-        <div class="icons">
-            <img src="adidas-removebg-preview.png" alt="Icon 1">
-            <img src="emirates.png" alt="Icon 2">
-        </div>
-        <a href="loginandRegister.html" class="sign-in">Sign in</a>
-        <div class="menu" id="menuToggle"></div>
-    </div>
-
-    <div class="overlay" id="overlay"></div>
-
-    <div class="menu-content" id="menuContent">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="tickets.php">Tickets</a></li>
-            <li><a href="shop.php">Shop</a></li>
-            <li><a href="index.php">Sponsors</a></li>
-            <li><a href="tickets.php">Contact</a></li>
-            <li><a href="matchdaytour.php">FCA Tour</a></li>
-            <li><a href="#">Football</a>
-                <ul class="submenu">
-                    <li><a href="firstteam.php">First Team</a></li>
-                    <li><a href="womenteam.php">Women's Team</a></li>
-                    <li><a href="academy.php">Academy</a></li>
-                </ul>
-            </li>
-            <li><a href="#">News</a>
-                <ul class="submenu">
-                    <li><a href="news.php">Latest News</a></li>
-                    <li><a href="nextevents.php">Next Events</a></li>
-                    <li><a href="schedule.php">Schedules</a></li>
-                </ul>
-            </li>
-            <li><a href="#">The Club</a>
-                <ul class="submenu">
-                    <li><a href="history.php">History</a></li>
-                    <li><a href="fcalphacity.php">FC ALPHA City</a></li>
-                    <li><a href="stadium.php">New Eagles Stadium</a></li>
-                    <li><a href="honors.php">Honors</a></li>
-                    <li><a href="fanclubs.php">Fan Clubs</a></li>
-                </ul>
-            </li>
-            <li><a href="foundation.php">Foundation</a></li>
-           
-            <li><a href="4kpics.php">Best Pictures</a></li>
-            <li><a href="contact.php">Contact</a></li>
-        </ul>
-    </div>
+   
 
 
     <h1 style="color: #000;padding-left: 20px;padding-right: 20px;margin-top: 30px;">Tuesday 10 December 2024</h1>
@@ -511,7 +454,7 @@ tbody tr:last-child td {
             </div>
 
         </div>
-            
+           
         <div class="match-card">
             <div class="team-info">
                 <img src="/git/ProjektiGL/lgekp30/ajaxlogo.png" alt="Ajax Logo">
@@ -614,8 +557,8 @@ tbody tr:last-child td {
                 <span class="score ">0</span>
                 <span>Atalnata</span>
                 <img src="/git/ProjektiGL/lgekp30/atllogo.png" alt="Atalanta Logo ">
-                
-                
+               
+               
             </div>
 
         </div>
@@ -631,7 +574,7 @@ tbody tr:last-child td {
                 <span>Aston Villa</span>
                 <img src="/git/ProjektiGL/lgekp30/astlogo 1.png " alt="Aston Villa Logo ">
                
-                
+               
             </div>
 
         </div>
@@ -646,7 +589,7 @@ tbody tr:last-child td {
                 <span class="score ">0</span>
                 <span>Shahktar Donetsk</span>
                 <img src="/git/ProjektiGL/lgekp30/shahlogo.png " alt="Shahktar Donetsk Logo ">
-                
+               
                
             </div>
 
@@ -663,7 +606,7 @@ tbody tr:last-child td {
                 <span>Benfica</span>
                 <img src="/git/ProjektiGL/lgekp30/benlogo.png " alt="Benfica Logo ">
                
-                
+               
             </div>
 
         </div>
@@ -678,8 +621,8 @@ tbody tr:last-child td {
                 <span class="score ">1</span>
                 <span>Bayer Leverkusen</span>
                 <img src="/git/ProjektiGL/lgekp30/bllogo.png " alt="Bayer Leverkusen Logo ">
-                
-                
+               
+               
             </div>
 
         </div>
@@ -697,7 +640,7 @@ tbody tr:last-child td {
 
             </div>
             <div class="team-infoone ">
-                
+               
                 <span>RMA</span>
                 <img src="/git/ProjektiGL/lgekp30/rmalogo1.png " alt="Real Madrid Logo ">
             </div>
@@ -719,7 +662,7 @@ tbody tr:last-child td {
             <span class="match-time ">18:45</span>
             <a href="tickets.php " class="details-button ">Ticket</a>
         </div>
-        
+       
         <div class="match-cardone ">
             <div class="team-infoone ">
                 <img src="/git/ProjektiGL/lgekp30/arslogo.png " alt="Arsenal Logo ">
@@ -734,7 +677,7 @@ tbody tr:last-child td {
             <span class="match-time ">18:45</span>
             <a href="tickets.php " class="details-button ">Ticket</a>
         </div>
-        
+       
         <div class="match-cardone ">
             <div class="team-infoone ">
                 <img src="/git/ProjektiGL/lgekp30/manulogo.png " alt="Manchester United Logo ">
@@ -749,7 +692,7 @@ tbody tr:last-child td {
             <span class="match-time ">18:45</span>
             <a href="tickets.php " class="details-button ">Ticket</a>
         </div>
-        
+       
         <div class="match-cardone ">
             <div class="team-infoone ">
                 <img src="/git/ProjektiGL/lgekp30/Barlogo.png " alt="Barcelona Logo ">
@@ -774,7 +717,7 @@ tbody tr:last-child td {
             <div class="team-infoone ">
                 <span>SEV</span>
                 <img src="/git/ProjektiGL/lgekp30/sevillalogo.png " alt="Sevilla Logo ">
-                
+               
             </div>
             <span class="match-time ">21:00</span>
             <a href="tickets.php " class="details-button ">Ticket</a>
@@ -789,7 +732,7 @@ tbody tr:last-child td {
             <div class="team-infoone ">
                 <span>JUV</span>
                 <img src="/git/ProjektiGL/lgekp30/juvelogo.png " alt="Juventus Logo ">
-                
+               
             </div>
             <span class="match-time ">21:00</span>
             <a href="tickets.php " class="details-button ">Ticket</a>
@@ -804,7 +747,7 @@ tbody tr:last-child td {
             <div class="team-infoone ">
                 <span>PSV</span>
                 <img src="/git/ProjektiGL/lgekp30/psvlogo.png " alt="PSV Logo ">
-                
+               
             </div>
             <span class="match-time ">21:00</span>
             <a href="tickets.php " class="details-button ">Ticket</a>
@@ -833,7 +776,7 @@ tbody tr:last-child td {
             <div class="team-infoone ">
                 <span>PSG</span>
                 <img src="/git/ProjektiGL/lgekp30/psglogo.png " alt="PSG Logo ">
-                
+               
             </div>
             <span class="match-time ">21:00</span>
             <a href="tickets.php " class="details-button ">Ticket</a>
@@ -861,7 +804,7 @@ tbody tr:last-child td {
             <div class="team-infoone ">
                 <span>LIL</span>
                 <img src="/git/ProjektiGL/lgekp30/lille logo.png " alt="Lille Logo ">
-                
+               
             </div>
             <span class="match-time ">21:00</span>
             <a href="tickets.php " class="details-button ">Ticket</a>
@@ -903,7 +846,7 @@ tbody tr:last-child td {
             <div class="team-infoone ">
                 <span>AJX</span>
                 <img src="/git/ProjektiGL/lgekp30/ajaxlogo.png " alt="Ajax Logo ">
-                
+               
             </div>
             <span class="match-time ">21:00</span>
             <a href="tickets.php " class="details-button ">Ticket</a>
@@ -947,7 +890,7 @@ tbody tr:last-child td {
             </tr>
             <tr>
                 <td>2</td>
-                <td>Real Madrid</td>
+                <td>Liverpool</td>
                 <td>38</td>
                 <td>21</td>
                 <td>4</td>
@@ -1378,3 +1321,4 @@ tbody tr:last-child td {
 </body>
 
 </html>
+

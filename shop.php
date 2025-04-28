@@ -1,13 +1,7 @@
 <?php
-session_start(); // Start session to manage user interactions
 
-// Database connection
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "db_product";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
+ include 'navbarfix.php';
+include 'shopconnect.php';
 
 // Check connection
 if ($conn->connect_error) {
@@ -15,23 +9,16 @@ if ($conn->connect_error) {
 }
 
 // Fetch products from the database
-$sql = "SELECT * FROM products";
+$sql = "SELECT id, name, price, image FROM products ORDER BY id DESC";
 $result = $conn->query($sql);
 ?>
 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Best Sellers</title>
+    <title>Shop</title>
     <link rel="stylesheet" href="test.css">
     <style>
         body {
@@ -190,361 +177,31 @@ $result = $conn->query($sql);
         }
     </style>
 </head>
-
 <body>
-<div class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="Real Madrid">
-        </div>
-        <div class="links">
-            <a href="index.php">Home</a>
-            <a href="tickets.php">Tickets</a>
-            <a href="shop.php">Shop</a>
-            <a href="sponsors.php">Sponsors</a>
-            <a href="contact.php">Contact</a>
-            <a href="matchdaytour.php">FCA Tour</a>
-        </div>
-        <div class="icons">
-            <img src="adidas-removebg-preview.png" alt="Icon 1">
-            <img src="emirates.png" alt="Icon 2">
-        </div>
-        <a href="loginandRegister.php" class="sign-in">Sign in</a>
-        <div class="menu" id="menuToggle"></div>
-    </div>
-
-    <div class="overlay" id="overlay"></div>
-
-    <div class="menu-content" id="menuContent">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="tickets.php">Tickets</a></li>
-            <li><a href="shop.php">Shop</a></li>
-            <li><a href="index.php">Sponsors</a></li>
-            <li><a href="tickets.php">Contact</a></li>
-            <li><a href="matchdaytour.php">FCA Tour</a></li>
-            <li><a href="#">Football</a>
-                <ul class="submenu">
-                    <li><a href="firstteam.php">First Team</a></li>
-                    <li><a href="womenteam.php">Women's Team</a></li>
-                    <li><a href="academy.php">Academy</a></li>
-                </ul>
-            </li>
-            <li><a href="#">News</a>
-                <ul class="submenu">
-                    <li><a href="news.php">Latest News</a></li>
-                    <li><a href="nextevents.php">Next Events</a></li>
-                    <li><a href="schedule.php">Schedules</a></li>
-                </ul>
-            </li>
-            <li><a href="#">The Club</a>
-                <ul class="submenu">
-                    <li><a href="history.php">History</a></li>
-                    <li><a href="fcalphacity.php">FC ALPHA City</a></li>
-                    <li><a href="stadium.php">New Eagles Stadium</a></li>
-                    <li><a href="honors.php">Honors</a></li>
-                    <li><a href="fanclubs.php">Fan Clubs</a></li>
-                </ul>
-            </li>
-            <li><a href="foundation.php">Foundation</a></li>
-           
-            <li><a href="4kpics.php">Best Pictures</a></li>
-            <li><a href="contact.php">Contact</a></li>
-        </ul>
-    </div>
-
-   
-
-    <script>
-            const menuToggle = document.getElementById('menuToggle');
-            const menuContent = document.getElementById('menuContent');
-            const overlay = document.getElementById('overlay');
-
-            menuToggle.addEventListener('click', () => {
-                menuToggle.classList.toggle('active');
-                menuContent.classList.toggle('active');
-                overlay.classList.toggle('active');
-            });
-
-            overlay.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                menuContent.classList.remove('active');
-                overlay.classList.remove('active');
-            });
-        </script>
-
-
     <div class="container">
         <h2>FC ALPHA SHOP</h2>
-                 
-
-        
-      
         <div class="product-grid">
-
-        <form action="process_cart.php" method="POST">
-            <div class="product-item">
-                <img src="adidasshoes.webp" alt="Adidas Shoes">
-                <div class="product-title">Adidas Gazelle Rekive 24/25 Charcoal</div>
-                <div class="product-price">$150.00</div>
-                <input type="hidden" name="product_name" value="Adidas Gazelle Rekive 24/25 Charcoal">
-                <input type="hidden" name="product_price" value="150.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-        </form>
-
-        <form action="process_cart.php" method="POST">
-            <div class="product-item">
-
-                <img src="adidasjacket.jpg" alt="Winter Jacket">
-                <div class="product-title" >Mens Training Winter Jacket 24/25 White</div>
-                <div class="product-price" >$215.00</div>
-                <input type="hidden" name="product_name" value="Mens Training Winter Jacket 24/25 White">
-                <input type="hidden" name="product_price" value="215.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-                
-            </div>
-        </form>
-            
-
-        <form action="process_cart.php" method="POST">
-            <div class="product-item">
-
-                <img src="tshirtadidas.jpg"  alt="Home Kit">
-                <div class="product-title">Youth Home Kit 24/25 White</div>
-                <div class="product-price" >$140.00</div>
-                <input type="hidden" name="product_name" value="Youth Home Kit 24/25 White">
-                <input type="hidden" name="product_price" value="140.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-        </form>
-            
-        <form action="process_cart.php" method="POST">
-
-                 <div class="product-item">
-                <img src="ball.webp" alt="All Weather Jacket">
-                <div class="product-title">Official Match Ball for 24/25 Season</div>
-                <div class="product-price">$125.00</div>
-                <input type="hidden" name="product_name" value="Official Match Ball for 24/25 Season">
-                <input type="hidden" name="product_price" value="125.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-
-        </form>
-               
-
-        <form action="process_cart.php" method="POST">
-            <div class="product-item">
-                <img src="shorts.webp" alt="Ball">
-                <div class="product-title">Mens UCL Training All Weather Jacket 24/25</div>
-                <div class="product-price">$120.00</div>
-                <input type="hidden" name="product_name" value="Mens UCL Training All Weather Jacket 24/25">
-                <input type="hidden" name="product_price" value="120.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-            </form>
-                
-            <form action="process_cart.php" method="POST">
-            
-            <div class="product-item">
-                <img src="hoodie.jpg" alt="Cap">
-                <div class="product-title">Mens hoodies for 2024/25 Season</div>
-                <div class="product-price">$30.00</div>
-                <input type="hidden" name="product_name" value="Mens hoodies for 2024/25 Season">
-                <input type="hidden" name="product_price" value="120.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-        </form>
-
-        <form action="process_cart.php" method="POST">
-
-            <div class="product-item">
-                <img src="socks.webp" alt="Home Kit">
-                <div class="product-title">Youth Home Kit 24/25 White</div>
-                <div class="product-price">$15.00</div>
-                <input type="hidden" name="product_name" value="Youth Home Kit 24/25 White">
-                <input type="hidden" name="product_price" value="120.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-            </form>
-
-            <form action="process_cart.php" method="POST">
-
-            <div class="product-item">
-                <img src="tracksuit.jpg" alt="Home Kit">
-                <div class="product-title">Black Track suit for  24/25 Season</div>
-                <div class="product-price">$90.00</div>
-                <input type="hidden" name="product_name" value="Black Track suit 24/25 Season">
-                <input type="hidden" name="product_price" value="90.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-            </form>
-            
-            <form action="process_cart.php" method="POST">
-            <div class="product-item">
-                <img src="shorts.jpg" alt="Home Kit">
-                <div class="product-title">Youth Kit shorts 24/25 White</div>
-                <div class="product-price">$78.00</div>
-                <input type="hidden" name="product_name" value="Youth Kit shorts 24/25 White">
-                <input type="hidden" name="product_price" value="78.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-            </form>
-
-            <form action="process_cart.php" method="POST">
-
-            <div class="product-item">
-                <img src="tracksuittwo.jpg" alt="Home Kit">
-                <div class="product-title"> Home Kit Complete for 24/25  season</div>
-                <div class="product-price">$125.00</div>
-                <input type="hidden" name="product_name" value="Home Kit Complete for 24/25  season">
-                <input type="hidden" name="product_price" value="125.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-        </form>
-
-        <form action="process_cart.php" method="POST">
-            <div class="product-item">
-                <img src="euroball-removebg-preview.png" alt="Home Kit">
-                <div class="product-title">Uefa Champions League ball for 24/25 </div>
-                <div class="product-price">$59.00</div>
-                <input type="hidden" name="product_name" value="Uefa Champions League ball for 24/25">
-                <input type="hidden" name="product_price" value="59.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-        </form>
-
-        <form action="process_cart.php" method="POST">
-            <div class="product-item">
-                <img src="bootstwo.jpg" alt="Home Kit">
-                <div class="product-title">Adidas boots Released for  24/25 Season</div>
-                <div class="product-price">$30.00</div>
-                <input type="hidden" name="product_name" value="Adidas boots Released for  24/25 Season">
-                <input type="hidden" name="product_price" value="30.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-
-        </form>
-  
-
-        <form action="process_cart.php" method="POST">
-
-            <div class="product-item">
-                <img src="tracksuitthree.jpg" alt="Home Kit">
-                <div class="product-title">Adidas training Jacket for  24/25 Season</div>
-                <div class="product-price">$140.00</div>
-                <input type="hidden" name="product_name" value="Adidas training Jacket  for  24/25 Season">
-                <input type="hidden" name="product_price" value="140.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-        </form>
-
-        <form action="process_cart.php" method="POST">
-
-            <div class="product-item">
-                <img src="redshorts.jpg" alt="Home Kit">
-                <div class="product-title">Red Shorts  for 24/25 season </div>
-                <div class="product-price">$120.00</div>
-                <input type="hidden" name="product_name" value="Red Shorts  for 24/25 season ">
-                <input type="hidden" name="product_price" value="120.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-        </form>
-
-        <form action="process_cart.php" method="POST">
-
-            <div class="product-item">
-                <img src="gloves.jpg" alt="Home Kit">
-                <div class="product-title">Adidas Goalkeeper gloves for 24/25</div>
-                <div class="product-price">$30.00</div>
-                <input type="hidden" name="product_name" value="Adidas Goalkeeper gloves for 24/25">
-                <input type="hidden" name="product_price" value="30.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-        </form>
-        
-        <form action="process_cart.php" method="POST">
-
-            <div class="product-item">
-                <img src="sockstwo.webp" alt="Home Kit">
-                <div class="product-title">Black Socks from Adidas for 24/25 season</div>
-                <div class="product-price">$50.00</div>
-                <input type="hidden" name="product_name" value="Black Socks from Adidas for 24/25 season">
-                <input type="hidden" name="product_price" value="50.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-        </form>
-
-        <form action="process_cart.php" method="POST">
-
-            <div class="product-item">
-                <img src="ballthree.jpg" alt="Home Kit">
-                <div class="product-title">League Santander ball for  24/25 Season</div>
-                <div class="product-price">$80.00</div>
-                <input type="hidden" name="product_name" value="League Santander ball for  24/25 Season">
-                <input type="hidden" name="product_price" value="80.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-        </form>
-        <form action="process_cart.php" method="POST">
-
-            <div class="product-item">
-                <img src="lightjacket.jpg" alt="Home Kit">
-                <div class="product-title">Adidas New 2025 Jacket for Coaches</div>
-                <div class="product-price">$140.00</div>
-                <input type="hidden" name="product_name" value="Adidas New 2025 Jacket for Coaches">
-                <input type="hidden" name="product_price" value="140.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-
-        </form>
-            
-        <form action="process_cart.php" method="POST">
-            <div class="product-item">
-                <img src="mainkit.webp" alt="Home Kit">
-                <div class="product-title">FC ALPHA Home Kit 24/25 Season</div>
-                <div class="product-price">$240.00</div>
-                <input type="hidden" name="product_name" value="FC ALPHA Home Kit 24/25 Season">
-                <input type="hidden" name="product_price" value="240.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-        </form>
-        <form action="process_cart.php" method="POST">
-            <div class="product-item">
-                <img src="shortsfour.avif" alt="Home Kit">
-                <div class="product-title">Home Kit Shorts for 24/25 Season</div>
-                <div class="product-price">$140.00</div>
-                <input type="hidden" name="product_name" value="Home Kit Shorts for 24/25 Season">
-                <input type="hidden" name="product_price" value="140.00">
-                <input type="number" name="quantity" value="1" min="1" style="top:-7px;position:relative;">
-                <button type="submit" class="product-btn">Add to Cart</button>
-            </div>
-        </form>
+            <?php if ($result->num_rows > 0): ?>
+                <?php while ($row = $result->fetch_assoc()): ?>
+                    <form action="process_cart.php" method="POST">
+                        <div class="product-item">
+                            
+                            <img src="<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['name']); ?>">
+                            <div class="product-title"><?php echo htmlspecialchars($row['name']); ?></div>
+                            <div class="product-price">$<?php echo number_format((float)$row['price'], 2); ?></div>
+                            <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($row['id']); ?>">
+                            <input type="hidden" name="product_name" value="<?php echo htmlspecialchars($row['name']); ?>">
+                            <input type="hidden" name="product_price" value="<?php echo (float)$row['price']; ?>">
+                            <input type="number" name="quantity" value="1" min="1">
+                            <button type="submit" class="product-btn">Add to Cart</button>
+                        </div>
+                    </form>
+                <?php endwhile; ?>
+            <?php else: ?>
+                <p style="text-align: center; font-size: 18px; color: red;">No products available.</p>
+            <?php endif; ?>
         </div>
     </div>
-        
-
-    
-  
-
     <footer class="footer ">
             <div class="footer-content ">
                 <div class="footer-column ">
@@ -697,8 +354,7 @@ $result = $conn->query($sql);
 
 
 
+
+    <?php $conn->close(); ?>
 </body>
-
 </html>
-
-<?php $conn->close(); ?>

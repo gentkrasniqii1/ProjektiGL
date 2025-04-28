@@ -1,3 +1,6 @@
+
+<?php include 'navbarfix.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,86 +17,118 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="Script.js"></script>
+
+
+    <style>
+    .btn-login {
+        display: inline-block;
+        background-color: #007bff;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+    }
+
+    .btn-login:hover {
+        background-color: #0056b3;
+    }
+ /* General Styles */
+.age-groups ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px; /* Adjusted for better spacing */
+    margin-top: 20px;
+}
+
+.age-group {
+    padding: 12px 18px;
+    border: 2px solid #007BFF;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 12px;
+    font-weight: 600;
+    color: #007BFF;
+    text-align: center;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    width: auto; /* Prevents overflow issues */
+    min-width: 120px;
+}
+
+.age-group:hover {
+    background-color: #007BFF;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Players Section */
+.players-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.player-box {
+    border: 1px solid #ddd;
+    padding: 18px;
+    border-radius: 12px;
+    width: 260px;
+    background: white;
+    text-align: center;
+    box-shadow: 2px 6px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.player-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 3px 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+/* Text Styles */
+.player-box h4 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #007BFF;
+    font-weight: 600;
+}
+
+.player-box p {
+    font-size: 14px;
+    color: #555;
+    margin: 6px 0;
+    line-height: 1.6;
+}
+@media (max-width: 768px) {
+    .age-group {
+        flex: 1 1 48%; /* Each button takes 48% width for 2 per row */
+        max-width: 180px; /* Adjust max-width for better fitting */
+    }
+}
+
+@media (max-width: 480px) {
+    .age-group {
+        flex: 1 1 100%; /* Full width for small screens */
+        max-width: 100%;
+    }
+}
+
+
+</style>
+  
 </head>
 
 <body>
-<div class="navbar">
-        <div class="logo">
-            <img src="logo.png" alt="Real Madrid">
-        </div>
-        <div class="links">
-            <a href="index.php">Home</a>
-            <a href="tickets.php">Tickets</a>
-            <a href="shop.php">Shop</a>
-            <a href="sponsors.php">Sponsors</a>
-            <a href="contact.php">Contact</a>
-            <a href="matchdaytour.php">FCA Tour</a>
-        </div>
-        <div class="icons">
-            <img src="adidas-removebg-preview.png" alt="Icon 1">
-            <img src="emirates.png" alt="Icon 2">
-        </div>
-        <a href="loginandRegister.php" class="sign-in">Sign in</a>
-        <div class="menu" id="menuToggle"></div>
-    </div>
 
-    <div class="overlay" id="overlay"></div>
-
-    <div class="menu-content" id="menuContent">
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <li><a href="tickets.php">Tickets</a></li>
-            <li><a href="shop.php">Shop</a></li>
-            <li><a href="index.php">Sponsors</a></li>
-            <li><a href="tickets.php">Contact</a></li>
-            <li><a href="matchdaytour.php">FCA Tour</a></li>
-            <li><a href="#">Football</a>
-                <ul class="submenu">
-                    <li><a href="firstteam.php">First Team</a></li>
-                    <li><a href="womenteam.php">Women's Team</a></li>
-                    <li><a href="academy.php">Academy</a></li>
-                </ul>
-            </li>
-            <li><a href="#">News</a>
-                <ul class="submenu">
-                    <li><a href="news.php">Latest News</a></li>
-                    <li><a href="nextevents.php">Next Events</a></li>
-                    <li><a href="schedule.php">Schedules</a></li>
-                </ul>
-            </li>
-            <li><a href="#">The Club</a>
-                <ul class="submenu">
-                    <li><a href="history.php">History</a></li>
-                    <li><a href="fcalphacity.php">FC ALPHA City</a></li>
-                    <li><a href="stadium.php">New Eagles Stadium</a></li>
-                    <li><a href="honors.php">Honors</a></li>
-                    <li><a href="fanclubs.php">Fan Clubs</a></li>
-                </ul>
-            </li>
-            <li><a href="foundation.php">Foundation</a></li>
-           
-            <li><a href="4kpics.php">Best Pictures</a></li>
-            <li><a href="contact.php">Contact</a></li>
-        </ul>
-    </div>
-
-    <script>
-            const menuToggle = document.getElementById('menuToggle');
-            const menuContent = document.getElementById('menuContent');
-            const overlay = document.getElementById('overlay');
-
-            menuToggle.addEventListener('click', () => {
-                menuToggle.classList.toggle('active');
-                menuContent.classList.toggle('active');
-                overlay.classList.toggle('active');
-            });
-
-            overlay.addEventListener('click', () => {
-                menuToggle.classList.remove('active');
-                menuContent.classList.remove('active');
-                overlay.classList.remove('active');
-            });
-        </script>
 
 
     <section class="about-section" id="about">
@@ -145,7 +180,7 @@
 
     </main>
 
-    <!---The work and success of the Liri company--->
+   
     <main>
         <div class="trainers-section" id="trainers">
             <h2 class="trainers-sectioni">Trajnerët dhe Asistentët</h2>
@@ -180,23 +215,62 @@
 
 
         <div class="players-section" id="Players">
-            <h2>Lojtarët sipas Grupmoshave</h2>
-            <div class="age-groups">
-                <div class="age-group" onclick="showPlayers('u11')">Grupmosha U11</div>
-                <div class="age-group" onclick="showPlayers('u12')">Grupmosha U12</div>
-                <div class="age-group" onclick="showPlayers('u13')">Grupmosha U13</div>
-                <div class="age-group" onclick="showPlayers('u14')">Grupmosha U14</div>
-                <div class="age-group" onclick="showPlayers('u15')">Grupmosha U15</div>
-                <div class="age-group" onclick="showPlayers('u16')">Grupmosha U16</div>
-                <div class="age-group" onclick="showPlayers('u17')">Grupmosha U17</div>
-                <div class="age-group" onclick="showPlayers('u18')">Grupmosha U18</div>
-                <div class="age-group" onclick="showPlayers('u19')">Grupmosha U19</div>
-                <div class="age-group" onclick="showPlayers('u20')">Grupmosha U20</div>
-                <div class="age-group" onclick="showPlayers('u21')">Grupmosha U21</div>
-            </div>
+    <h2>Lojtarët sipas Grupmoshave</h2>
+    
+    <div class="age-groups">
+        <ul id="age-group-list"></ul>
+    </div>
+    
+    <div id="players-container" class="players-container"></div>
 
-            <div id="players-container" class="players-container"></div>
-        </div>
+    <!-- <a href="register_players.php" class="btn-login">Sign in</a> -->
+</div>
+
+<script>
+    // Krijimi dinamik i grupmoshave
+    const ageGroups = ["u11", "u12", "u13", "u14", "u15", "u16", "u17", "u18", "u19", "u20", "u21"];
+    const ageGroupList = document.getElementById("age-group-list");
+
+    ageGroups.forEach(group => {
+        const listItem = document.createElement("li");
+        listItem.className = "age-group";
+        listItem.innerText = `Grupmosha ${group.toUpperCase()}`;
+        listItem.onclick = () => showPlayers(group);
+        ageGroupList.appendChild(listItem);
+    });
+
+    function showPlayers(group) {
+        const container = document.getElementById("players-container");
+        container.innerHTML = ""; // Pastro përmbajtjen e mëparshme
+
+        fetch(`get_players.php?group=${group}`)
+            .then(response => response.json())
+            .then(players => {
+                if (players.length === 0) {
+                    container.innerHTML = `<p>Nuk ka lojtarë të regjistruar për grupmoshën ${group.toUpperCase()}.</p>`;
+                    return;
+                }
+
+                players.forEach((player, index) => {
+                    const playerBox = document.createElement("div");
+                    playerBox.className = "player-box";
+                    playerBox.innerHTML = `
+                        <h4>${index + 1}. Emri: ${player.name} ${player.surname}</h4>
+                        <p>Mosha: ${player.age}</p>
+                        <p>Grupmosha: ${player.group_age.toUpperCase()}</p>
+                        <p>Pozita: ${player.position}</p>
+                        <p>Email: ${player.email}</p>
+                    `;
+                    container.appendChild(playerBox);
+                });
+
+                container.style.display = "flex";
+                container.style.flexWrap = "wrap";
+                container.style.justifyContent = "center";
+            })
+            .catch(error => console.error('Gabim në marrjen e lojtarëve:', error));
+    }
+</script>
 
 
         <section id="contact-section" class="contact-section">
@@ -237,8 +311,8 @@
 
 
     </main>
-    <!-- 
-    <!------------Testimonials--------------->
+<!--
+    <-----Testimonials--------------->
 
     <section class="testimonial-section">
         <h2>What Our People Say</h2>

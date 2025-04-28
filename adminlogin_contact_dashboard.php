@@ -5,7 +5,7 @@ session_start();
 
 
 // Database connection
-$conn = new mysqli("localhost", "root", "", "contact_db");
+$conn = new mysqli("localhost", "root", "", "menagjimi_kontakteve");
 
 
 

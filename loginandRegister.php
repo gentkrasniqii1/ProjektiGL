@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $phoneNumber = $_POST['phone-number'] ?? null;
             $birthDate = $_POST['birth-date'] ?? null;
 
-            $query = $conn->prepare("INSERT INTO users (first_name, last_name, email, password, phone_number, birth_date) VALUES (?, ?, ?, ?, ?, ?)");
+            $query = $conn->prepare("INSERT INTO useri (first_name, last_name, email, password, phone_number, birth_date) VALUES (?, ?, ?, ?, ?, ?)");
             $query->bind_param("ssssss", $firstName, $lastName, $email, $password, $phoneNumber, $birthDate);
                
             
@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $email = $_POST['email'];
             $password = $_POST['password'];
 
-            $query = $conn->prepare("SELECT * FROM users WHERE email = ?");
+            $query = $conn->prepare("SELECT * FROM useri WHERE email = ?");
             $query->bind_param("s", $email);
             $query->execute();
             $result = $query->get_result();

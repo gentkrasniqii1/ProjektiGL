@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$conn = new mysqli("localhost", "root", "", "contact_db");
+$conn = new mysqli("localhost", "root", "", "menagjimi_kontakteve");
 
 $result = $conn->query("SELECT * FROM contacts");
 ?>
